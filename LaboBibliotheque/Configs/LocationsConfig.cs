@@ -31,9 +31,11 @@ namespace LaboBibliotheque.Configs
 
             builder
                 .Property(e => e.DateLocation)
+                .HasDefaultValueSql("GETDATE()")
                 .IsRequired();
             builder
                 .Property(e => e.DateRetour)
+                .HasDefaultValueSql("DATEADD(day, 14, GETDATE())")
                 .IsRequired();
 
         }

@@ -25,5 +25,6 @@ namespace LaboBibliotheque.Configs
                 .Property(e => e.Prenom)
                 .IsRequired();
         }
+        
     }
 }

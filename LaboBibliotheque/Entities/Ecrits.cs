@@ -9,8 +9,6 @@ namespace LaboBibliotheque.Entities
     public class Ecrits
     {
         public int ISBN { get; set; }
-        public Livres Livre { get; set; }
-        public Auteurs Auteur { get; set; }
         public int IDauteur { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace LaboBibliotheque.Configs
 
             builder
                 .Property(e => e.DateAchat)
+                .HasDefaultValueSql("GETDATE()")
                 .IsRequired();
 
         }

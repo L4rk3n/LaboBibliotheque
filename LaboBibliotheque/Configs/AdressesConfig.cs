@@ -32,10 +32,13 @@ namespace LaboBibliotheque.Configs
                 .Property(e => e.Numero)
                 .IsRequired();
             builder
-                .Property(e => e.Boite)
-                .IsRequired();
+                .Property(e => e.Boite);
 
-
+            builder
+                .HasMany(a => a.ListUtilisateur)
+                .WithOne(u => u.Adresse)
+                .HasForeignKey(u => u.IDadresse);
         }
     }
 }
+

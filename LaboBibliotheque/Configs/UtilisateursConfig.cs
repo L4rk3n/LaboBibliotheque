@@ -17,12 +17,8 @@ namespace LaboBibliotheque.Configs
             builder
                 .Property(e => e.IDutilisateur)
                 .ValueGeneratedOnAdd()
-                .IsRequired()
-                .IsUnique();
-
-            builder
-                .Property(e => e.IDadresse)
                 .IsRequired();
+
             builder
                 .Property(e => e.Nom)
                 .IsRequired();
@@ -31,12 +27,21 @@ namespace LaboBibliotheque.Configs
                 .IsRequired();
 
             builder
-                .HasIndex(e => e.DateNaissance)
+                .Property(e => e.DateNaissance)
                 .IsRequired();
             builder
-                .HasIndex(e => e.Password)
+                .Property(e => e.Email)
+                .IsRequired();
+            builder
+                .Property(e => e.Password)
+                .HasDefaultValue("[Nom] + [Prenom] + CAST(YEAR([DateNaissance]) AS NVARCHAR)")
                 .IsRequired();
 
+            builder
+                .HasOne(u => u.Adresse)
+                .WithMany(a => a.ListUtilisateur)
+                .HasForeignKey(u => u.IDadresse);
         }
     }
 }
+

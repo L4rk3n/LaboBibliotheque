@@ -10,5 +10,7 @@ namespace LaboBibliotheque.Entities
     {
         public int IDgenre { get; set; }
         public string Nom { get; set; }
+
+        public List <Livres> ListeLivres { get; set; }
     }
 }

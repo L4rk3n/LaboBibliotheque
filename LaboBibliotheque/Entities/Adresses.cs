@@ -15,5 +15,8 @@ namespace LaboBibliotheque.Entities
         public string Rue { get; set; }
         public int Numero { get; set; }
         public int Boite { get; set; }
+        public int UtilisateurId { get; set; }
+
+        public List<Utilisateurs> ListUtilisateur {  get; set; }   
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaboBibliotheque.Configs
 {
-    internal class GenresConfig : IEntityTypeConfiguration<Genres>
+    public class GenresConfig : IEntityTypeConfiguration<Genres>
     {
         public void Configure(EntityTypeBuilder<Genres> builder)
         {
@@ -21,7 +21,6 @@ namespace LaboBibliotheque.Configs
             builder
                 .Property(e => e.Nom)
                 .IsRequired();
-            
         }
     }
 }
