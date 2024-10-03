@@ -1,4 +1,4 @@
-﻿using LaboBibliotheque.Entities;
+﻿using LaboBibliotheque_BLL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboBibliotheque.Configs
+namespace LaboBibliotheque_BLL.Configs
 {
     internal class AchatsDataSet : IEntityTypeConfiguration<Achats>
     {

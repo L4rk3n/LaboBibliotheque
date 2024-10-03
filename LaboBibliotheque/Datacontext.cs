@@ -1,5 +1,5 @@
-﻿using LaboBibliotheque.Configs;
-using LaboBibliotheque.Entities;
+﻿
+using LaboBibliotheque_DB.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboBibliotheque
+namespace LaboBibliotheque_DB
 {
-    internal class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Livres> Livres { get; set; }
         public DbSet<Locations> Locations { get; set; }
@@ -23,7 +23,7 @@ namespace LaboBibliotheque
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LaboBibli;Integrated Security=True;Connect Timeout=60;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LaboBibli;Integrated Security=True;Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

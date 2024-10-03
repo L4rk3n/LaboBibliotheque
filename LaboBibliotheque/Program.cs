@@ -1,4 +1,4 @@
-﻿namespace LaboBibliotheque
+﻿namespace LaboBibliotheque_BLL
 {
     internal class Program
     {
