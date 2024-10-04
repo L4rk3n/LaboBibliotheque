@@ -19,12 +19,12 @@ namespace LaboBibliotheque_BLL.Mapper
                 Titre = entity.Titre,
                 IDgenre = entity.IDgenre,
                 Prix = entity.Prix,
-                stocklocation = entity.Stocklocation,
-                stockachat = entity.Stockachat,
+                StockLocation = entity.StockLocation,
+                StockAchat = entity.StockAchat,
 
-                ListeAchats = entity.ListeAchats,
-                ListeLocations = entity.ListeLocations,
-                ListeAuteurs = entity.ListeAuteurs,
+                ListeAchats = entity.ListeAchats.Select(a=>a.ToEF()).ToList(),
+                ListeLocations = entity.ListeLocations.Select(a => a.ToEF()).ToList(),
+                ListeAuteurs = entity.ListeAuteurs.Select(a => a.ToEF()).ToList(),
             };
         }
 
@@ -36,12 +36,12 @@ namespace LaboBibliotheque_BLL.Mapper
                 Titre = entity.Titre,
                 IDgenre = entity.IDgenre,
                 Prix = entity.Prix,
-                stocklocation = entity.Stocklocation,
-                stockachat = entity.Stockachat,
+                StockLocation = entity.StockLocation,
+                StockAchat = entity.StockAchat,
 
-                ListeAchats = entity.ListeAchats,
-                ListeLocations = entity.ListeLocations,
-                ListeAuteurs = entity.ListeAuteurs,
+                ListeAchats = entity.ListeAchats.Select(a => a.ToBLL()).ToList(),
+                ListeLocations = entity.ListeLocations.Select(a => a.ToBLL()).ToList(),
+                ListeAuteurs = entity.ListeAuteurs.Select(a => a.ToBLL()).ToList(),
             };
         }
         public static EF.Achats ToEF(this BLL.Achats entity)
@@ -50,9 +50,9 @@ namespace LaboBibliotheque_BLL.Mapper
             {
                 IDachat = entity.IDachat,
                 IDutilisateur = entity.IDutilisateur,
-                Utilisateur = entity.Utilisateur,
+                Utilisateur = entity.Utilisateur?.ToEF(),
                 ISBN = entity.ISBN,
-                Livre = entity.Livre,
+                Livre = entity.Livre?.ToEF(),
                 DateAchat = entity.DateAchat,
             };
         }
@@ -63,9 +63,9 @@ namespace LaboBibliotheque_BLL.Mapper
             {
                 IDachat = entity.IDachat,
                 IDutilisateur = entity.IDutilisateur,
-                Utilisateur = entity.Utilisateur,
+                Utilisateur = entity.Utilisateur?.ToBLL(),
                 ISBN = entity.ISBN,
-                Livre = entity.Livre,
+                Livre = entity.Livre?.ToBLL(),
                 DateAchat = entity.DateAchat,
             };
         }
@@ -82,7 +82,7 @@ namespace LaboBibliotheque_BLL.Mapper
                 Boite = entity.Boite,
                 UtilisateurId = entity.UtilisateurId,
 
-                ListUtilisateur = entity.ListUtilisateur,
+                ListUtilisateur = entity.ListUtilisateur.Select(u=>u.ToEF()).ToList(),
             };
         }
 
@@ -98,7 +98,7 @@ namespace LaboBibliotheque_BLL.Mapper
                 Boite = entity.Boite,
                 UtilisateurId = entity.UtilisateurId,
 
-                ListUtilisateur = entity.ListUtilisateur,
+                ListUtilisateur = entity.ListUtilisateur.Select(u => u.ToBLL()).ToList(),
             };
         }
         public static EF.Auteurs ToEF(this BLL.Auteurs entity)
@@ -109,7 +109,7 @@ namespace LaboBibliotheque_BLL.Mapper
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
 
-                ListeLivres = entity.ListeLivres,
+                ListeLivres = entity.ListeLivres.Select(u => u.ToEF()).ToList(),
             };
         }
 
@@ -121,7 +121,7 @@ namespace LaboBibliotheque_BLL.Mapper
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
 
-                ListeLivres = entity.ListeLivres,
+                ListeLivres = entity.ListeLivres.Select(u => u.ToBLL()).ToList(),
             };
         }
 
@@ -146,7 +146,7 @@ namespace LaboBibliotheque_BLL.Mapper
         {
             return new EF.Genres
             {
-                IDgenre = entity.Idgenre,
+                IDgenre = entity.IDgenre,
                 Nom = entity.Nom,
             };
         }
@@ -155,7 +155,7 @@ namespace LaboBibliotheque_BLL.Mapper
         {
             return new BLL.Genres
             {
-                IDgenre = entity.Idgenre,
+                IDgenre = entity.IDgenre,
                 Nom = entity.Nom,
             };
         }
@@ -166,10 +166,10 @@ namespace LaboBibliotheque_BLL.Mapper
             {
                 IDlocation = entity.IDlocation,
                 ISBN = entity.ISBN,
-                Livre = entity.Livre,
+                Livre = entity.Livre?.ToEF(),
                 IDutilisateur = entity.IDutilisateur,
-                Utilisateur = entity.Utilisateur,
-                DateLocation = entiy.DateLocation,
+                Utilisateur = entity.Utilisateur?.ToEF(),
+                DateLocation = entity.DateLocation,
                 DateRetour = entity.DateRetour,
             };
         }
@@ -180,10 +180,10 @@ namespace LaboBibliotheque_BLL.Mapper
             {
                 IDlocation = entity.IDlocation,
                 ISBN = entity.ISBN,
-                Livre = entity.Livre,
+                Livre = entity.Livre?.ToBLL(),
                 IDutilisateur = entity.IDutilisateur,
-                Utilisateur = entity.Utilisateur,
-                DateLocation = entiy.DateLocation,
+                Utilisateur = entity.Utilisateur?.ToBLL(),
+                DateLocation = entity.DateLocation,
                 DateRetour = entity.DateRetour,
             };
         }
@@ -195,31 +195,31 @@ namespace LaboBibliotheque_BLL.Mapper
                 IDadresse = entity.IDadresse,
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
-                Datenaissance = entity.DateNaissance,
+                DateNaissance = entity.DateNaissance,
                 Email = entity.Email,
                 Password = entity.Password,
                 
-                Adresse = entity.Adresse,
-                ListeAchats = entity.ListeAchats,
-                ListeLocations = entity.ListeLocations,
+                Adresse = entity.Adresse?.ToEF(),
+                ListeAchats = entity.ListeAchats?.Select(a=>a.ToEF()).ToList(),
+                ListeLocations = entity.ListeLocations.Select(a => a.ToEF()).ToList(),
             };
         }
 
         public static BLL.Utilisateurs ToBLL(this EF.Utilisateurs entity)
         {
-            return new BLL.Locations
+            return new BLL.Utilisateurs
             {
                 IDutilisateur = entity.IDutilisateur,
                 IDadresse = entity.IDadresse,
                 Nom = entity.Nom,
                 Prenom = entity.Prenom,
-                Datenaissance = entity.DateNaissance,
+                DateNaissance = entity.DateNaissance,
                 Email = entity.Email,
                 Password = entity.Password,
 
-                Adresse = entity.Adresse,
-                ListeAchats = entity.ListeAchats,
-                ListeLocations = entity.ListeLocations,
+                Adresse = entity.Adresse?.ToBLL(),
+                ListeAchats = entity.ListeAchats.Select(a => a.ToBLL()).ToList(),
+                ListeLocations = entity.ListeLocations.Select(a => a.ToBLL()).ToList(),
             };
         }
     }

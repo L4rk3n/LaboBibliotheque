@@ -4,7 +4,7 @@ namespace LaboBibliotheque_BLL.Entities
 {
     public class Utilisateurs : IUtilisateurs
     {
-        public int IDutilisateur { get; }
+        public int IDutilisateur { get; internal set; }
         public int IDadresse { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }

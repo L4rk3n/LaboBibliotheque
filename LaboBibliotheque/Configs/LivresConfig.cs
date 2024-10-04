@@ -1,4 +1,4 @@
-﻿using LaboBibliotheque_BLL.Entities;
+﻿using LaboBibliotheque_DB.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaboBibliotheque_BLL.Configs
+namespace LaboBibliotheque_DB.Configs
 {
     internal class LivresConfig : IEntityTypeConfiguration<Livres>
     {
@@ -54,11 +54,11 @@ namespace LaboBibliotheque_BLL.Configs
 
                     });
             builder
-                .Property(e => e.stocklocation)
+                .Property(e => e.StockLocation)
                 .IsRequired();
 
             builder
-                .Property(e => e.stockachat)
+                .Property(e => e.StockAchat)
                 .IsRequired();
 
         }

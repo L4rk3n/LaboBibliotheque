@@ -12,8 +12,8 @@ namespace LaboBibliotheque_DB.Entities
         public string Titre { get; set; }
         public int IDgenre { get; set; }
         public double Prix { get; set; }
-        public int stocklocation { get; set; }
-        public int stockachat { get; set; }
+        public int StockLocation { get; set; }
+        public int StockAchat { get; set; }
 
         public List<Achats> ListeAchats { get; set; }
         public List<Locations> ListeLocations { get; set; }

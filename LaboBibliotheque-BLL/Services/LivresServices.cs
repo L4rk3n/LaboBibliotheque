@@ -67,8 +67,8 @@ namespace LaboBibliotheque_BLL.Services
                 livres.Titre = entity.Titre;
                 livres.IDgenre = entity.IDgenre;
                 livres.Prix = entity.Prix;
-                livres.stocklocation = entity.Stocklocation;
-                livres.stockachat = entity.Stockachat;
+                livres.StockLocation = entity.StockLocation;
+                livres.StockAchat = entity.StockAchat;
                 
                 _context.SaveChanges();
             }

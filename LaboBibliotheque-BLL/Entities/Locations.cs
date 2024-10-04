@@ -4,7 +4,7 @@ namespace LaboBibliotheque_BLL.Entities
 {
     public class Locations : ILocations
     {
-        public int IDlocation { get; set; }
+        public int IDlocation { get; internal set; }
         public int ISBN { get; set; }
         public int IDutilisateur { get; set; }
         public DateTime DateLocation { get; set; }
