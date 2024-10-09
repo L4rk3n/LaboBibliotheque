@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entities\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LaboBibliotheque-BLL\LaboBibliotheque-BLL.csproj" />
     <ProjectReference Include="..\LaboBibliotheque-Common\LaboBibliotheque-Common.csproj" />
   </ItemGroup>

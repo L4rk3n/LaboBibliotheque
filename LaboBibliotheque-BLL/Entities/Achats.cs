@@ -9,7 +9,6 @@ namespace LaboBibliotheque_BLL.Entities
         public int ISBN { get; set; }
         public DateTime DateAchat { get; set; }
 
-        public Livres Livre { get; set; }
-        public Utilisateurs Utilisateur { get; set; }
+       
     }
 }

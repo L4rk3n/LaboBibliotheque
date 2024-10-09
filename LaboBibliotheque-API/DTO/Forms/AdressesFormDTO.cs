@@ -1,25 +1,22 @@
-﻿using LaboBibliotheque_Common.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace LaboBibliotheque_BLL.Entities
+namespace LaboBibliotheque_API.DTO.Forms
 {
-    public class Adresses : IAdresses
-
+    public class AdressesFormDTO
     {
         
-        public int IDadresse { get; internal set; }
-
+        public int IDadresse { get; set; }
+        [Required]
         public string Pays { get; set; }
-      
+        [Required]
         public string Localite { get; set; }
-     
+        [Required]
         public string Rue { get; set; }
-       
+        [Required]
         public int Numero { get; set; }
+        
         public int Boite { get; set; }
-      
+        [Required]
         public int UtilisateurId { get; set; }
-
-
     }
 }

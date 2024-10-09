@@ -16,12 +16,7 @@ namespace LaboBibliotheque_BLL.Entities
         public double Prix { get; set; }
         public int StockLocation { get; set; }
         public int StockAchat { get; set; }
-
-        public List<Achats> ListeAchats { get; set; }
-        public List<Locations> ListeLocations { get; set; }
-        public List<Auteurs> ListeAuteurs { get; set; }
-
-        public Genres Genre { get; set; }
+      
 
     }
 }

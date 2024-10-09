@@ -12,9 +12,5 @@ namespace LaboBibliotheque_BLL.Entities
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public Adresses Adresse { get; set; }
-        public List<Achats> ListeAchats { get; set; }
-        public List<Locations> ListeLocations { get; set; }
-
     }
 }

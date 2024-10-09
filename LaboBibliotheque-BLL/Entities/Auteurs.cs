@@ -8,7 +8,7 @@ namespace LaboBibliotheque_BLL.Entities
         public string Nom { get; set; }
         public string Prenom { get; set; }
 
-        public List<Livres> ListeLivres { get; set; }
+
 
     }
 }
