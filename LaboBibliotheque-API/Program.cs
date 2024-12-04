@@ -1,10 +1,14 @@
 
+using LaboBibliotheque_API.Services;
 using LaboBibliotheque_BLL.Services;
 using LaboBibliotheque_Common.Repositories;
 using LaboBibliotheque_DB;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel;
+using System.Text;
 
 namespace LaboBibliotheque_API
 {
@@ -23,6 +27,25 @@ namespace LaboBibliotheque_API
             builder.Services.AddScoped<ILivresRepository<LaboBibliotheque_BLL.Entities.Livres>, LaboBibliotheque_BLL.Services.LivresServices>();
             builder.Services.AddScoped<ILocationsRepository<LaboBibliotheque_BLL.Entities.Locations>, LaboBibliotheque_BLL.Services.LocationsServices>();
             builder.Services.AddScoped<IUtilisateursRepository<LaboBibliotheque_BLL.Entities.Utilisateurs>, LaboBibliotheque_BLL.Services.UtilisateursServices>();
+            builder.Services.AddScoped<TokenService>();
+
+            // Add JWT config
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = builder.Configuration["Token:Issuer"],
+                        ValidAudience = builder.Configuration["Token:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:Secret"]))
+                    };
+                });
+            
 
 
             builder.Services.AddControllers();
@@ -38,8 +61,8 @@ namespace LaboBibliotheque_API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            
 
+            app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();
 

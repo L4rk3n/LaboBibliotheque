@@ -59,6 +59,18 @@ namespace LaboBibliotheque_BLL.Services
             }
         }
 
+        public Utilisateurs Get(string email)
+        {
+            try
+            {
+                return _context.Utilisateurs.First(l => l.Email == email).ToBLL();
+            }
+            catch (Exception ex)
+            {
+                return new Utilisateurs();
+            }
+        }
+
         public void Update(int id, Utilisateurs entity)
         {
             try

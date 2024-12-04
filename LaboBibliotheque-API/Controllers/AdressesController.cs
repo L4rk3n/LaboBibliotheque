@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using LaboBibliotheque_API.Tools;
 using LaboBibliotheque_BLL.Entities;
 using LaboBibliotheque_Common.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaboBibliotheque_API.Controllers
 {
@@ -17,13 +18,13 @@ namespace LaboBibliotheque_API.Controllers
         {
             _AdressesServices = AdressesServices;
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_AdressesServices.Get());
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] AdressesFormDTO form)
         {
@@ -32,7 +33,7 @@ namespace LaboBibliotheque_API.Controllers
             _AdressesServices.Create(form.ToBLL());
             return Ok();
         }
-
+        [Authorize]
         [HttpGet("byAdresses/{id}")]
         public IActionResult GetByAchatsId(int id)
         {

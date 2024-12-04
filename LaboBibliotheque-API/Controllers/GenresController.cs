@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LaboBibliotheque_Common.Repositories;
 using LaboBibliotheque_BLL.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaboBibliotheque_API.Controllers
 {
@@ -15,15 +16,15 @@ namespace LaboBibliotheque_API.Controllers
         {
             _GenresServices = GenresServices;
         }
-
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_GenresServices.Get());
         }
 
-        
 
+        [Authorize]
         [HttpGet("byAdresses/{id}")]
         public IActionResult GetByAchatsId(int id)
         {

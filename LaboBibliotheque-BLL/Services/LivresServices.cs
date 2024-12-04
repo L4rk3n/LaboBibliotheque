@@ -25,6 +25,7 @@ namespace LaboBibliotheque_BLL.Services
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex);
                 return false;
             }
         }

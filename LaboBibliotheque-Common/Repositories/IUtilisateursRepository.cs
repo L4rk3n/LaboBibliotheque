@@ -8,7 +8,7 @@ using System.Text;
 
 namespace LaboBibliotheque_Common.Repositories
 {
-    public interface IUtilisateursRepository<TUtilisateur> : ICRUDRepository<TUtilisateur, int> where TUtilisateur : IUtilisateurs
+    public interface IUtilisateursRepository<TUtilisateur> : ICRUDRepository2<TUtilisateur, int> where TUtilisateur : IUtilisateurs
     {
         
     }
